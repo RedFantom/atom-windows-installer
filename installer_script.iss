@@ -12,7 +12,6 @@
 #define SupportURL "https://discuss.atom.io"
 #define UpdatesURL "https://www.github.com/atom/atom/releases"
 #define AppExeName "atom.exe"
-#define AtomShellRegistry "HKEY_CLASSES_ROOT\*\shell\Atom\"
 
 [Setup]
 ; This AppId is the same for all files, which means the uninstaller will be run before installation
