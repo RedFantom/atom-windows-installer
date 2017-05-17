@@ -30,7 +30,8 @@ LicenseFile={#ZIPLocation}\LICENSE
 OutputBaseFilename=setup_{#AppVersion}
 SetupIconFile={#ZIPLocation}\resources\cli\file.ico
 Compression=zip/1
-SolidCompression=yes
+; Disabled because not recommended for installs >100MiB
+SolidCompression=no
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
