@@ -26,9 +26,13 @@ AppSupportURL={#SupportURL}
 AppUpdatesURL={#UpdatesURL}
 DefaultDirName={pf64}\{#AppName}
 DisableProgramGroupPage=yes
+; Shows the Atom MIT License
 LicenseFile={#ZIPLocation}\LICENSE
 OutputBaseFilename=setup_{#AppVersion}
+; This is the icon used for files to be opened by default with Atom
 SetupIconFile={#ZIPLocation}\resources\cli\file.ico
+; Simplest compression method, but also the fastest to decompress
+; This is useful because the installation of the many tiny files included with Atom takes quite a while
 Compression=zip/1
 ; Disabled because not recommended for installs >100MiB
 SolidCompression=no
