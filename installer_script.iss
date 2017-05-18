@@ -42,7 +42,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-Name: "contextmenu"; description: "Add Atom to the Windows explorer context menu"
+Name: "contextmenu"; Description: "Add Atom to the Windows explorer context menu"
 
 [Files]
 Source: "{#ZIPLocation}\atom.exe"; DestDir: "{app}"; Flags: ignoreversion
