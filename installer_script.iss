@@ -36,6 +36,7 @@ SetupIconFile={#ZIPLocation}\resources\cli\file.ico
 Compression=zip/1
 ; Disabled because not recommended for installs >100MiB
 SolidCompression=no
+ChangesAssociations=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -43,6 +44,10 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "contextmenu"; Description: "Add Atom to the Windows explorer context menu"
+; Checkboxes for the registry keys of the file extensions for a few languages
+Name: "pythonreg"; Description: "Register Python file extensions"; Flags: unchecked
+Name: "creg"; Description: "Register C/C++ file extensions"; Flags: unchecked
+Name: "javareg"; Description: "Register Java file extensions"; Flags: unchecked
 
 [Files]
 Source: "{#ZIPLocation}\atom.exe"; DestDir: "{app}"; Flags: ignoreversion
@@ -61,5 +66,15 @@ Filename: "{app}\{#AppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(
 Root: HKCR; Subkey: "*\shell\Atom"; Flags: uninsdeletekey; Tasks: contextmenu
 Root: HKCR; Subkey: "*\shell\Atom\command"; Flags: uninsdeletekey; Tasks: contextmenu
 Root: HKCR; Subkey: "*\shell\Atom"; ValueName: ""; ValueType: string; ValueData: "Open with Atom"; Flags: uninsdeletekey; Tasks: contextmenu
-Root: HKCR; Subkey: "*\shell\Atom"; ValueName: "Icon"; ValueType: string; ValueData: "{app}\atom.exe"; Flags: uninsdeletekey; Tasks: contextmenu
-Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; ValueData: "{app}\atom.exe %1"; Flags: uninsdeletekey; Tasks: contextmenu
+Root: HKCR; Subkey: "*\shell\Atom"; ValueName: "Icon"; ValueType: string; ValueData: "{app}\{#AppExeName}"; Flags: uninsdeletekey; Tasks: contextmenu
+Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; ValueData: """{app}\{#AppExeName} "%1""""; Flags: uninsdeletekey; Tasks: contextmenu
+; Registry keys for each language file extensions
+Root: HKCR; Subkey: ".py"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: pythonreg
+Root: HKCR; Subkey: ".c"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: creg
+Root: HKCR; Subkey: ".h"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: creg
+Root: HKCR; Subkey: ".cpp"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: creg
+Root: HKCR; Subkey: ".java"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: javareg
+; Default registry keys for file extension associations
+Root: HKCR; Subkey: "{#AppName}"; ValueName: ""; ValueType: string; ValueData: "Program {#AppName}";  Flags: uninsdeletekey
+Root: HKCR; Subkey: "{#AppName}\DefaultIcon"; ValueName: ""; ValueType: string; ValueData: "{app}\resources\resources\cli\file.ico";  Flags: uninsdeletekey
+Root: HKCR; Subkey: "{#AppName}\shell\open\command";  ValueName: ""; ValueType: string; ValueData: """{app}\{#AppExeName}"" ""%1""";  Flags: uninsdeletekey
