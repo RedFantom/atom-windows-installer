@@ -67,7 +67,7 @@ Root: HKCR; Subkey: "*\shell\Atom"; Flags: uninsdeletekey; Tasks: contextmenu
 Root: HKCR; Subkey: "*\shell\Atom\command"; Flags: uninsdeletekey; Tasks: contextmenu
 Root: HKCR; Subkey: "*\shell\Atom"; ValueName: ""; ValueType: string; ValueData: "Open with Atom"; Flags: uninsdeletekey; Tasks: contextmenu
 Root: HKCR; Subkey: "*\shell\Atom"; ValueName: "Icon"; ValueType: string; ValueData: "{app}\{#AppExeName}"; Flags: uninsdeletekey; Tasks: contextmenu
-Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; ValueData: """{app}\{#AppExeName} "%1""""; Flags: uninsdeletekey; Tasks: contextmenu
+Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName} '%1'"; Flags: uninsdeletekey; Tasks: contextmenu
 ; Registry keys for each language file extensions
 Root: HKCR; Subkey: ".py"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: pythonreg
 Root: HKCR; Subkey: ".c"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: creg
