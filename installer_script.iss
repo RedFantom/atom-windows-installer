@@ -44,6 +44,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "contextmenu"; Description: "Add Atom to the Windows explorer context menu"
+; Checkbox to add Atom and the APM /bin path to the PATH environment variable
 Name: "atompath"; Description: "Add Atom and APM to the PATH variable"; Flags: unchecked
 ; Checkboxes for the registry keys of the file extensions for a few languages
 Name: "pythonreg"; Description: "Register Python file extensions"; Flags: unchecked
@@ -73,6 +74,7 @@ Root: HKCR; Subkey: "*\shell\Atom"; ValueName: "Icon"; ValueType: string; ValueD
   Flags: uninsdeletekey; Tasks: contextmenu
 Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName} '%1'"; \
   Flags: uninsdeletekey; Tasks: contextmenu
+; Registry keys to add Atom and APM to the PATH environment variable
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; \
   ValueName: "Path"; ValueData: "{olddata};{app}"; Tasks: atompath; Flags: uninsdeletekey
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; \
