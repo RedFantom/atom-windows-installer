@@ -44,6 +44,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "contextmenu"; Description: "Add Atom to the Windows explorer context menu"
+Name: "atompath"; Description: "Add Atom and APM to the PATH variable"; Flags: unchecked
 ; Checkboxes for the registry keys of the file extensions for a few languages
 Name: "pythonreg"; Description: "Register Python file extensions"; Flags: unchecked
 Name: "creg"; Description: "Register C/C++ file extensions"; Flags: unchecked
@@ -72,6 +73,10 @@ Root: HKCR; Subkey: "*\shell\Atom"; ValueName: "Icon"; ValueType: string; ValueD
   Flags: uninsdeletekey; Tasks: contextmenu
 Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName} '%1'"; \
   Flags: uninsdeletekey; Tasks: contextmenu
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; \
+  ValueName: "Path"; ValueData: "{olddata};{app}"; Tasks: atompath; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; \
+  ValueName: "Path"; ValueData: "{olddata};{app}\resources\app\apm\bin"; Tasks: atompath; Flags: uninsdeletekey
 ; Registry keys for each language file extensions
 Root: HKCR; Subkey: ".py"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; \
   Flags: uninsdeletevalue; Tasks: pythonreg
