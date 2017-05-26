@@ -58,23 +58,35 @@ Name: "{commonprograms}\{#AppName}"; Filename: "{app}\{#AppExeName}"
 Name: "{commondesktop}\{#AppName}"; Filename: "{app}\{#AppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#AppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(AppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\{#AppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(AppName, '&', '&&')}}"; \
+  Flags: nowait postinstall skipifsilent
 
 [Registry]
 ; These are the registry entries required to add Atom to the Windows explorer context menu
 ; These are only created when the user does not uncheck the Task (see [Tasks]) "contextmenu"
 Root: HKCR; Subkey: "*\shell\Atom"; Flags: uninsdeletekey; Tasks: contextmenu
 Root: HKCR; Subkey: "*\shell\Atom\command"; Flags: uninsdeletekey; Tasks: contextmenu
-Root: HKCR; Subkey: "*\shell\Atom"; ValueName: ""; ValueType: string; ValueData: "Open with Atom"; Flags: uninsdeletekey; Tasks: contextmenu
-Root: HKCR; Subkey: "*\shell\Atom"; ValueName: "Icon"; ValueType: string; ValueData: "{app}\{#AppExeName}"; Flags: uninsdeletekey; Tasks: contextmenu
-Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName} '%1'"; Flags: uninsdeletekey; Tasks: contextmenu
+Root: HKCR; Subkey: "*\shell\Atom"; ValueName: ""; ValueType: string; ValueData: "Open with Atom"; \
+  Flags: uninsdeletekey; Tasks: contextmenu
+Root: HKCR; Subkey: "*\shell\Atom"; ValueName: "Icon"; ValueType: string; ValueData: "{app}\{#AppExeName}"; \
+  Flags: uninsdeletekey; Tasks: contextmenu
+Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName} '%1'"; \
+  Flags: uninsdeletekey; Tasks: contextmenu
 ; Registry keys for each language file extensions
-Root: HKCR; Subkey: ".py"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: pythonreg
-Root: HKCR; Subkey: ".c"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: creg
-Root: HKCR; Subkey: ".h"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: creg
-Root: HKCR; Subkey: ".cpp"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: creg
-Root: HKCR; Subkey: ".java"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; Flags: uninsdeletevalue; Tasks: javareg
+Root: HKCR; Subkey: ".py"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; \
+  Flags: uninsdeletevalue; Tasks: pythonreg
+Root: HKCR; Subkey: ".c"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; \
+  Flags: uninsdeletevalue; Tasks: creg
+Root: HKCR; Subkey: ".h"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; \
+  Flags: uninsdeletevalue; Tasks: creg
+Root: HKCR; Subkey: ".cpp"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; \
+  Flags: uninsdeletevalue; Tasks: creg
+Root: HKCR; Subkey: ".java"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; \
+  Flags: uninsdeletevalue; Tasks: javareg
 ; Default registry keys for file extension associations
-Root: HKCR; Subkey: "{#AppName}"; ValueName: ""; ValueType: string; ValueData: "Program {#AppName}";  Flags: uninsdeletekey
-Root: HKCR; Subkey: "{#AppName}\DefaultIcon"; ValueName: ""; ValueType: string; ValueData: "{app}\resources\resources\cli\file.ico";  Flags: uninsdeletekey
-Root: HKCR; Subkey: "{#AppName}\shell\open\command";  ValueName: ""; ValueType: string; ValueData: """{app}\{#AppExeName}"" ""%1""";  Flags: uninsdeletekey
+Root: HKCR; Subkey: "{#AppName}"; ValueName: ""; ValueType: string; ValueData: "Program {#AppName}"; \
+  Flags: uninsdeletekey
+Root: HKCR; Subkey: "{#AppName}\DefaultIcon"; ValueName: ""; ValueType: string; \
+  ValueData: "{app}\resources\resources\cli\file.ico";  Flags: uninsdeletekey
+Root: HKCR; Subkey: "{#AppName}\shell\open\command";  ValueName: ""; ValueType: string; \
+  ValueData: """{app}\{#AppExeName}"" ""%1""";  Flags: uninsdeletekey
