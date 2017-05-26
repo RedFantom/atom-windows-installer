@@ -76,9 +76,9 @@ Root: HKCR; Subkey: "*\shell\Atom\command"; ValueName: ""; ValueType: string; Va
   Flags: uninsdeletekey; Tasks: contextmenu
 ; Registry keys to add Atom and APM to the PATH environment variable
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; \
-  ValueName: "Path"; ValueData: "{olddata};{app}"; Tasks: atompath; Flags: uninsdeletekey
+  ValueName: "Path"; ValueData: "{olddata};{app}"; Tasks: atompath; Flags: uninsdeletevalue
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; \
-  ValueName: "Path"; ValueData: "{olddata};{app}\resources\app\apm\bin"; Tasks: atompath; Flags: uninsdeletekey
+  ValueName: "Path"; ValueData: "{olddata};{app}\resources\app\apm\bin"; Tasks: atompath; Flags: uninsdeletevalue
 ; Registry keys for each language file extensions
 Root: HKCR; Subkey: ".py"; ValueName: ""; ValueType: string; ValueData: "{app}\{#AppExeName}}"; \
   Flags: uninsdeletevalue; Tasks: pythonreg
